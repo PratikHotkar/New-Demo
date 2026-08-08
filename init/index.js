@@ -30,10 +30,13 @@ function delay(ms) {
 }
 
 const intiDB = async() => {
+    await Listing.deleteMany({});
+    console.log("Old listings deleted");
+    
     for (let obj of initData.data) {
         let geometry;
         try {
-            geometry = await geocodeLocation(obj.location, obj.country);   // ✅ properly awaited
+            geometry = await geocodeLocation(obj.location, obj.country);
         } catch (err) {
             console.log(`Could not geocode ${obj.title}: ${err.message}`);
             continue;
@@ -41,13 +44,16 @@ const intiDB = async() => {
         
         const newListing = new Listing({
             ...obj,
-            owner: "6a6441c8b040ba0a8049521a",
-            geometry,   // just the variable name, no parentheses
+            owner: "6a77066afb85d923f30a5b0f",
+            geometry,
         });
         
         await newListing.save();
+        console.log(`Saved: ${obj.title}`);
         await delay(600);
     }
+    
+    console.log("Seeding complete!");
 }
 
 intiDB();
