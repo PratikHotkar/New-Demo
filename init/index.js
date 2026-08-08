@@ -1,13 +1,17 @@
+const dns = require("dns");
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
+
 // The data is inserted into the DB
 if(process.env.NODE_ENV != "production") {
     require("dotenv").config();
 }
 
-
 const mongoose = require("mongoose");
 const initData = require("./data.js");
 const Listing = require("../models/listing.js");
 const { geocodeLocation } = require("../utils/geocode.js");
+
+const dbUrl = process.env.ATLASDB_URL;
 
 main()
     .then((res) => {
@@ -18,7 +22,7 @@ main()
     });
 
 async function main() {
-    await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust");
+    await mongoose.connect(dbUrl);
 }
 
 function delay(ms) {
