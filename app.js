@@ -46,9 +46,9 @@ async function main() {
     await mongoose.connect(dbUrl);
 }
 
-// app.get("/", (req, res) => {
-//     res.send("I am root");
-// });
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
 
 const store = MongoStoreClass.create({
     mongoUrl: dbUrl,
