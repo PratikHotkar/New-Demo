@@ -48,6 +48,7 @@ A full-stack travel listing platform where users can browse, add, edit, and dele
 
 ## Live Demo
 [Wanderlust](https://wanderlust-l7ug.onrender.com/listings)
+> Note: Hosted on Render's free tier — the site may take 20-30 seconds to load on first visit due to server cold start.
 
 ## Author
 **Pratik Hotkar**  
