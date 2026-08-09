@@ -20,9 +20,6 @@ A full-stack travel listing platform where users can browse, add, edit, and dele
 **Maps:** LocationIQ API  
 **Others:** REST APIs, MVC Architecture
 
-## Screenshots
-(Add 2-4 screenshots here — homepage, listing detail page, add listing form, map view)
-
 ## Installation
 
 1. Clone the repository
